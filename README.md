@@ -7,7 +7,7 @@ configuration.
 Configuration Options Set By Default
 ------------------------------------
 * Root password: toor
-* Grub is installed to the MBR of the first hard disk.
+* Grub is installed to the MBR of /dev/sda.
 * All files are installed to a single partition that uses the entire disk.
 
 
@@ -28,9 +28,14 @@ but after that *almost* everything else will be automatic. At the moment
 
 Notes
 -----
-* If you really to, you can omit the locale, hostname, and domain options in
-step 3, but you'll have to choose them at the beginning of the install if you
-don't type them in at boot time.
-
 * Your preseed.cfg file must be accessible via HTTP. The wget command included
-in the initial boot image does not seem to support HTTPS.
+in the initial boot image does not seem to support HTTPS. Unfortunately this
+means you can't just use the URL of my preseed.cfg file hosted on github.
+
+* To save a little typing you can omit the locale, hostname, and domain options
+in step 3, but you'll have to choose them at the beginning of the install if
+you don't type them in at boot time.
+
+* You can safely omit the 'http://' at the beginning of the preseed file URL
+as long as your file is accessible over HTTP.
+
